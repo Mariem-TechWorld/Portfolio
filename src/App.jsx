@@ -9,12 +9,12 @@ function App() {
       try {
         const { data, error } = await supabase
           .from('projects')
-          .select('count')
+          .select('*')
         
         if (error) {
           setStatus(`❌ Error: ${error.message}`)
         } else {
-          setStatus('✅ Supabase connected successfully!')
+          setStatus(`✅ Supabase connected! Projects table ready. (${data.length} projects)`)
         }
       } catch (err) {
         setStatus(`❌ Failed: ${err.message}`)
