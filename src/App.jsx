@@ -1,6 +1,7 @@
 import AnimatedBackground from "./components/Background"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SocialLinks from "./components/SocialLinks"
 
 function App() {
   return (
@@ -12,13 +13,13 @@ function App() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white',
-        fontSize: '2rem',
-        fontFamily: 'sans-serif',
         position: 'relative',
-        zIndex: 1
+        zIndex: 1,
+        padding: '2rem'
       }}>
-        ✅ Footer test
+        <div style={{ width: '400px' }}>
+          <SocialLinks />
+        </div>
       </div>
       <Footer />
     </>
