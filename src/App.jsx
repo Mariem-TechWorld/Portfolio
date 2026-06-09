@@ -1,6 +1,7 @@
 import AnimatedBackground from "./components/Background"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import CommentSection from "./components/Comment"
 import SocialLinks from "./components/SocialLinks"
 
 function App() {
@@ -17,8 +18,13 @@ function App() {
         zIndex: 1,
         padding: '2rem'
       }}>
-        <div style={{ width: '400px' }}>
-          <SocialLinks />
+        <div style={{ display: 'flex', gap: '2rem', width: '100%', maxWidth: '1100px' }}>
+          <div style={{ flex: 1 }}>
+            <SocialLinks />
+          </div>
+          <div style={{ flex: 1 }}>
+            <CommentSection />
+          </div>
         </div>
       </div>
       <Footer />
