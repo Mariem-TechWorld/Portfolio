@@ -45,7 +45,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-indigo-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
           <img
-            src="/Myriam.png"
+            src="https://yfmhyuxtgkjdolzvloan.supabase.co/storage/v1/object/public/profile-images/Myriam.png"
             alt="Mariem — Cloud Infrastructure & DevSecOps Engineer"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"
@@ -209,7 +209,7 @@ const AboutPage = () => {
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:px-0 w-full">
               <a
-                href="/Mariem Ben Mabrouk_Resume_english.pdf"
+                href="https://yfmhyuxtgkjdolzvloan.supabase.co/storage/v1/object/public/Resume/Mariem%20Ben%20Mabrouk_Resume_english.pdf"
                 download="Mariem_Ben_Mabrouk_Resume.pdf"
                 className="w-full lg:w-auto"
               >
