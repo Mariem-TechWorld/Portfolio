@@ -4,12 +4,12 @@ import { supabase } from '../supabase'
 import Projects from './dashboard/Projects'
 import Certificates from './dashboard/Certificates'
 import Comments from './dashboard/Comments'
-import { FolderGit2, Award, MessageSquare, LogOut, LayoutDashboard, Menu, X, Terminal } from 'lucide-react'
+import { FolderGit2, Award, MessageSquare, LogOut, LayoutDashboard, Menu } from 'lucide-react'
 
 const NAV_ITEMS = [
-  { to: 'projects', label: 'Projects', icon: FolderGit2 },
-  { to: 'certificates', label: 'Certificates', icon: Award },
-  { to: 'comments', label: 'Comments', icon: MessageSquare },
+  { to: '/dashboard/projects', label: 'Projects', icon: FolderGit2 },
+  { to: '/dashboard/certificates', label: 'Certificates', icon: Award },
+  { to: '/dashboard/comments', label: 'Comments', icon: MessageSquare },
 ]
 
 export default function Dashboard() {
@@ -46,7 +46,7 @@ export default function Dashboard() {
       <nav className="flex flex-col gap-1 flex-1 min-h-0">
         <p className="text-[10px] text-gray-600 uppercase tracking-widest px-3 mb-2 shrink-0 font-mono">Menu</p>
         {NAV_ITEMS.map(({ to, label, icon: Icon }) => {
-          const active = location.pathname.includes(to)
+          const active = location.pathname === to
           return (
             <Link
               key={to}
@@ -79,17 +79,12 @@ export default function Dashboard() {
   return (
     <div className="flex text-white" style={{ height: '100dvh', background: '#020818' }}>
 
-      {/* Grid background */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#4f4f4f06_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f06_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-20 bg-black/60 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
+        <div className="fixed inset-0 z-20 bg-black/60 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Desktop sidebar */}
       <aside
         className="hidden lg:flex w-60 shrink-0 flex-col border-r border-cyan-500/10 bg-[#080d1a]/80 backdrop-blur-xl"
         style={{ height: '100dvh', position: 'sticky', top: 0 }}
@@ -98,7 +93,6 @@ export default function Dashboard() {
         <SidebarContent />
       </aside>
 
-      {/* Mobile sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 z-30 w-60 flex flex-col border-r border-cyan-500/10 bg-[#080d1a] backdrop-blur-xl transition-transform duration-300 lg:hidden ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -108,10 +102,8 @@ export default function Dashboard() {
         <SidebarContent />
       </aside>
 
-      {/* Main area */}
       <div className="flex-1 flex flex-col min-w-0 min-h-0 relative">
 
-        {/* Mobile topbar */}
         <div className="lg:hidden flex items-center gap-3 px-4 py-3 border-b border-cyan-500/10 bg-[#080d1a]/80 backdrop-blur-xl shrink-0">
           <button
             onClick={() => setSidebarOpen(true)}
@@ -126,7 +118,7 @@ export default function Dashboard() {
 
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
           <Routes>
-            <Route index element={<Navigate to="projects" replace />} />
+            <Route index element={<Navigate to="/dashboard/projects" replace />} />
             <Route path="projects" element={<Projects />} />
             <Route path="certificates" element={<Certificates />} />
             <Route path="comments" element={<Comments />} />
